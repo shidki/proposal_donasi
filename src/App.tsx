@@ -213,7 +213,7 @@ const App = () => {
               </div>
             </div>
           </div>
-          <p className="mt-4 text-[10px] text-slate-400 italic text-center">Estimasi pengerjaan: 2-3 Minggu kerja intensif.</p>
+          <p className="mt-4 text-[10px] text-slate-400 italic text-center">Estimasi pengerjaan: 3-4 Minggu kerja intensif.</p>
         </div>
       )
     },
