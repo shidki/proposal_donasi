@@ -245,7 +245,8 @@ const App = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 relative gap-6 md:gap-4">
               {[
                 { phase: "Fase 1", title: "MVP Launch", items: ["Donasi Dasar", "Audit Trail", "KYC User", "Payment Gateway"] },
-                { phase: "Fase 2", title: "Scale", items: ["Relawan Network", "Partnership"] }
+                { phase: "Fase 2", title: "Reporting", items: ["Auto Report via WA"] },
+                { phase: "Fase 3", title: "Scale", items: ["Relawan Network", "Partnership"] }
               ].map((item, i) => (
                 <div key={i} className="flex md:flex-col items-start md:items-center gap-4 md:gap-0">
                   <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-600 rounded-full md:mb-6 z-10 border-4 border-white shrink-0"></div>
