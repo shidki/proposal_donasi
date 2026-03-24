@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  ShieldCheck, 
+import {
   TrendingUp,
   Target, 
   Layers, 
@@ -8,14 +7,13 @@ import {
   ChevronLeft, 
   AlertCircle,
   CheckCircle2,
-  BarChart3,
   Heart,
-  Eye
+  Zap,
+  DollarSign
 } from 'lucide-react';
 
 const Slide = ({ children, active }: { children: React.ReactNode; active: boolean }) => (
   <div className={`transition-all duration-500 absolute inset-0 flex flex-col items-center p-4 md:p-8 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
-    {/* Penambahan overflow-y-auto agar konten tidak kepotong tombol navigasi di HP */}
     <div className="w-full max-w-5xl h-full flex flex-col items-center justify-start md:justify-center overflow-y-auto pb-32 pt-4 md:pb-0">
       {children}
     </div>
@@ -29,7 +27,7 @@ const App = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   const slides = [
-    // SLIDE 1: Title
+    // SLIDE 1: Intro
     {
       content: (
         <div className="text-center px-2">
@@ -37,10 +35,10 @@ const App = () => {
             <Heart className="w-10 h-10 md:w-12 md:h-12 text-blue-600" />
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-tight">
-            Membangun Jembatan <span className="text-blue-600">Kebaikan</span> yang Terpercaya
+            Aethra <span className="text-blue-600">Donasi</span>
           </h1>
           <p className="text-base md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Platform Donasi Digital dengan Fokus Transparansi Radikal & Akuntabilitas Filantropi.
+            Solusi Platform Donasi Cepat, Transparan, dan Hemat Biaya Pengembangan (MVP Strategy).
           </p>
           <div className="mt-8 md:mt-12 text-[10px] md:text-sm font-semibold text-slate-400 uppercase tracking-widest">
             Presented by Shidki • Aethra Visionary Technology
@@ -48,222 +46,155 @@ const App = () => {
         </div>
       )
     },
-    // SLIDE 2: Problem
+    // SLIDE 2: Problem & Solution
     {
       content: (
         <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 md:mb-10 flex items-center gap-3">
-            <AlertCircle className="text-red-500 w-6 h-6" /> Analisis Masalah
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
+            <Zap className="text-yellow-500 w-6 h-6" /> Strategi MVP
           </h2>
-          {/* Diubah: grid-cols-1 untuk HP, md:grid-cols-3 untuk Desktop */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {[
-              { title: "Trust Crisis", desc: "Donatur ragu apakah uang mereka benar-benar sampai atau dipotong biaya admin.", icon: <ShieldCheck className="text-red-500" /> },
-              { title: "Lack of Proof", desc: "Update laporan seringkali hanya teks tanpa bukti fisik/nota yang detail & terverifikasi.", icon: <Eye className="text-orange-500" /> },
-              { title: "Giving Friction", desc: "Proses donasi yang berbelit memaksa calon donatur membatalkan niat baiknya.", icon: <TrendingUp className="text-slate-500 md:rotate-90" /> }
-            ].map((item, i) => (
-              <div key={i} className="bg-white p-5 md:p-6 rounded-2xl border border-slate-100 shadow-sm flex md:flex-col items-start gap-4 md:gap-0">
-                <div className="shrink-0 md:mb-4">{item.icon}</div>
-                <div>
-                  <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2 text-slate-800">{item.title}</h3>
-                  <p className="text-slate-500 text-xs md:text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+          <p className="text-slate-600 mb-8 text-sm md:text-base">Membangun fitur esensial untuk memvalidasi ide tanpa biaya tinggi di awal.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
+              <h3 className="font-bold text-red-600 mb-2 flex items-center gap-2">
+                <AlertCircle className="w-4 h-4" /> Masalah Umum
+              </h3>
+              <ul className="text-xs md:text-sm space-y-2 text-slate-500">
+                <li>• Biaya pembuatan web donasi sangat mahal.</li>
+                <li>• Sistem terlalu kompleks untuk kebutuhan awal.</li>
+                <li>• Kurangnya transparansi pada penyaluran dana.</li>
+              </ul>
+            </div>
+            <div className="bg-blue-50 p-5 rounded-2xl border border-blue-100 shadow-sm">
+              <h3 className="font-bold text-blue-600 mb-2 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" /> Solusi Aethra
+              </h3>
+              <ul className="text-xs md:text-sm space-y-2 text-slate-700">
+                <li>• Fokus pada fitur inti (Donasi & Laporan).</li>
+                <li>• Integrasi Payment Gateway siap pakai (QRIS).</li>
+                <li>• Transparansi manual yang kredibel & terdokumentasi.</li>
+              </ul>
+            </div>
           </div>
         </div>
       )
     },
-    // SLIDE 3: Vision & Goals
-    {
-      content: (
-        <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 md:mb-10">Tujuan Strategis</h2>
-          <div className="space-y-3 md:space-y-4">
-            {[
-              { label: "Meningkatkan Partisipasi", desc: "Mempermudah donasi mulai dari Rp 1.000 dengan sistem seamless.", color: "bg-blue-500" },
-              { label: "Standardisasi Akuntabilitas", desc: "Setiap rupiah yang keluar wajib memiliki bukti digital (nota & foto).", color: "bg-green-500" },
-              { label: "Pemberdayaan Lokal", desc: "Fokus pada kedekatan emosional komunitas lokal seperti Sedulur Bangun Negeri.", color: "bg-purple-500" }
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-4 md:gap-6 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                <div className={`w-2 md:w-3 h-10 md:h-12 ${item.color} rounded-full shrink-0`}></div>
-                <div>
-                  <h4 className="font-bold text-sm md:text-base text-slate-800">{item.label}</h4>
-                  <p className="text-xs md:text-sm text-slate-500">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )
-    },
-    // SLIDE 4: Benchmarking
+    // SLIDE 3: Benchmarking & Positioning
     {
       content: (
         <div className="w-full max-w-5xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 md:mb-8 text-center">Market Benchmarking</h2>
-          {/* Diubah: grid-cols-1 untuk HP */}
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center">Positioning Kita</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 md:p-6 bg-slate-50 rounded-2xl border border-slate-200">
-              <h3 className="font-bold text-lg md:text-xl mb-3 md:mb-4 text-blue-600 italic">Kitabisa</h3>
-              <ul className="text-xs md:text-sm space-y-1 md:space-y-2 text-slate-600">
-                <li>• Ekosistem masif</li>
-                <li>• Pembayaran efisien</li>
-                <li>• Brand awareness kuat</li>
+            <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 opacity-60">
+              <h3 className="font-bold text-lg mb-2 text-slate-600">Enterprise App</h3>
+              <p className="text-[10px] md:text-xs text-slate-500 mb-4">Seperti Kitabisa</p>
+              <ul className="text-[10px] md:text-xs space-y-1 text-slate-500">
+                <li>• Biaya Dev: Rp 100jt+</li>
+                <li>• Maintenance: Tinggi</li>
+                <li>• Sistem: Sangat Rumit</li>
               </ul>
             </div>
-            <div className="p-5 md:p-6 bg-slate-50 rounded-2xl border border-slate-200">
-              <h3 className="font-bold text-lg md:text-xl mb-3 md:mb-4 text-emerald-600 italic text-center text-xs md:text-base">Sedulur Bangun Negeri</h3>
-              <ul className="text-xs md:text-sm space-y-1 md:space-y-2 text-slate-600">
-                <li>• Fokus komunitas lokal</li>
-                <li>• Dampak sosial nyata</li>
-                <li>• Personal approach</li>
+            <div className="p-5 bg-blue-600 rounded-2xl text-white shadow-xl shadow-blue-200 scale-105 z-10">
+              <h3 className="font-bold text-lg md:text-xl mb-2 italic">Aethra MVP</h3>
+              <p className="text-[10px] md:text-xs opacity-80 mb-4 font-bold uppercase tracking-wider">Pilihan Terbaik Saat Ini</p>
+              <ul className="text-[10px] md:text-xs space-y-2">
+                <li>★ Biaya Dev: Efisien & Hemat</li>
+                <li>★ Fitur: Tepat Sasaran (Core Only)</li>
+                <li>★ Launching: Sangat Cepat</li>
+                <li>★ Scalable: Bisa dikembangkan nanti</li>
               </ul>
             </div>
-            <div className="p-5 md:p-6 bg-blue-600 rounded-2xl text-white shadow-xl shadow-blue-200 ring-4 ring-blue-100">
-              <h3 className="font-bold text-lg md:text-xl mb-4 border-b border-blue-400 pb-2">Our Application</h3>
-              <ul className="space-y-4">
-                <li className="flex flex-col">
-                  <span className="font-bold text-sm md:text-base">• Hybrid Model</span>
-                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
-                    Gabungan donasi online (app) & offline (komunitas) untuk jangkauan lebih luas.
-                  </span>
-                </li>
-                <li className="flex flex-col">
-                  <span className="font-bold text-sm md:text-base">• Radical Transparency</span>
-                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
-                    Keterbukaan total; donatur bisa melihat mutasi rekening yayasan secara langsung.
-                  </span>
-                </li>
-                <li className="flex flex-col">
-                  <span className="font-bold text-sm md:text-base">• Real-time Audit Trail</span>
-                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
-                    Setiap rupiah terlacak otomatis dari masuknya donasi hingga keluar ke penerima.
-                  </span>
-                </li>
-                <li className="flex flex-col">
-                  <span className="font-bold text-sm md:text-base">• WhatsApp Impact Notification</span>
-                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
-                    Laporan bukti foto & nota langsung dikirim ke WA kamu saat dana disalurkan.
-                  </span>
-                </li>
+            <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 opacity-60">
+              <h3 className="font-bold text-lg mb-2 text-slate-600">Template Biasa</h3>
+              <p className="text-[10px] md:text-xs text-slate-500 mb-4">Beli di internet</p>
+              <ul className="text-[10px] md:text-xs space-y-1 text-slate-500">
+                <li>• Sulit di-custom</li>
+                <li>• Keamanan diragukan</li>
+                <li>• Tidak ada support lokal</li>
               </ul>
             </div>
           </div>
         </div>
       )
     },
-    // SLIDE 5: Requirement
+    // SLIDE 4: Core MVP Requirements
     {
       content: (
         <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 md:mb-10 flex items-center gap-3">
-             <Target className="text-blue-600 w-6 h-6" /> User Requirements
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 flex items-center gap-3">
+             <Target className="text-blue-600 w-6 h-6" /> Fitur Utama (MVP)
           </h2>
-          {/* Diubah: grid-cols-1 untuk HP */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="space-y-4 md:space-y-6">
-              <div className="flex gap-3 md:gap-4">
-                <div className="bg-blue-100 p-2 h-fit rounded-lg shrink-0"><CheckCircle2 className="text-blue-600 w-4 h-4 md:w-5 md:h-5" /></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { t: "Quick Donation", d: "Donatur bisa langsung donasi via QRIS tanpa harus ribet login/daftar." },
+              { t: "Basic Transparency", d: "Halaman khusus bukti penyaluran dana berupa upload foto & nota." },
+              { t: "Campaign Page", d: "Halaman detail penggalangan dana dengan progress bar real-time." },
+              { t: "Admin Panel", d: "Dashboard simpel untuk mengelola donasi masuk & update laporan." }
+            ].map((f, i) => (
+              <div key={i} className="flex gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
+                <div className="bg-green-100 p-2 h-fit rounded-lg shrink-0"><CheckCircle2 className="text-green-600 w-4 h-4 md:w-5 md:h-5" /></div>
                 <div>
-                  <p className="font-bold text-sm md:text-base text-slate-800">Seamless Experience</p>
-                  <p className="text-xs md:text-sm text-slate-500">Guest Mode & Integrasi QRIS/E-Wallet.</p>
+                  <p className="font-bold text-sm md:text-base text-slate-800">{f.t}</p>
+                  <p className="text-[10px] md:text-xs text-slate-500 leading-relaxed">{f.d}</p>
                 </div>
               </div>
-              <div className="flex gap-3 md:gap-4">
-                <div className="bg-blue-100 p-2 h-fit rounded-lg shrink-0"><CheckCircle2 className="text-blue-600 w-4 h-4 md:w-5 md:h-5" /></div>
-                <div>
-                  <p className="font-bold text-sm md:text-base text-slate-800">Campaign Discovery</p>
-                  <p className="text-xs md:text-sm text-slate-500">Filter kategori & Geo-location (Terdekat).</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-4 md:space-y-6">
-              <div className="flex gap-3 md:gap-4">
-                <div className="bg-blue-100 p-2 h-fit rounded-lg shrink-0"><CheckCircle2 className="text-blue-600 w-4 h-4 md:w-5 md:h-5" /></div>
-                <div>
-                  <p className="font-bold text-sm md:text-base text-slate-800">Trust Signals</p>
-                  <p className="text-xs md:text-sm text-slate-500">Verified Badge (KTP & Dokumen Yayasan).</p>
-                </div>
-              </div>
-              <div className="flex gap-3 md:gap-4">
-                <div className="bg-blue-100 p-2 h-fit rounded-lg shrink-0"><CheckCircle2 className="text-blue-600 w-4 h-4 md:w-5 md:h-5" /></div>
-                <div>
-                  <p className="font-bold text-sm md:text-base text-slate-800">Impact Reports</p>
-                  <p className="text-xs md:text-sm text-slate-500">Update foto & video langsung dari lapangan.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       )
     },
-    // SLIDE 6: Unique Selling Point
-    {
-      content: (
-        <div className="w-full max-w-4xl text-center px-2">
-          <h2 className="text-2xl md:text-4xl font-bold text-slate-800 mb-2 md:mb-4">Radical Transparency</h2>
-          <p className="text-xs md:text-sm text-slate-500 mb-8 md:mb-12">Fitur yang membuat kita unggul dari kompetitor</p>
-          {/* Diubah: flex-col untuk HP, md:flex-row untuk Desktop */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12">
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-24 md:h-24 bg-blue-50 rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-blue-200">
-                <BarChart3 className="w-8 h-8 md:w-10 md:h-10 text-blue-600" />
-              </div>
-              <p className="font-bold text-sm md:text-base text-slate-800">Digital Audit Trail</p>
-              <p className="text-[10px] md:text-xs text-slate-400">Buku kas terbuka publik</p>
-            </div>
-            <ChevronRight className="hidden md:block w-10 h-10 text-slate-200" />
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-24 md:h-24 bg-emerald-50 rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-emerald-200">
-                <Layers className="w-8 h-8 md:w-10 md:h-10 text-emerald-600" />
-              </div>
-              <p className="font-bold text-sm md:text-base text-slate-800">Proof Gallery</p>
-              <p className="text-[10px] md:text-xs text-slate-400">Arsip nota & dokumentasi</p>
-            </div>
-            <ChevronRight className="hidden md:block w-10 h-10 text-slate-200" />
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-24 md:h-24 bg-purple-50 rounded-full flex items-center justify-center mb-2 md:mb-4 border-2 border-purple-200">
-                <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-purple-600" />
-              </div>
-              <p className="font-bold text-sm md:text-base text-slate-800">Auto-Report</p>
-              <p className="text-[10px] md:text-xs text-slate-400">Update via WA Donatur</p>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    // SLIDE 7: Roadmap
+    // SLIDE 5: Roadmap & Cost Efficiency
     {
       content: (
         <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 md:mb-12 text-center">Fase Pengembangan</h2>
-          <div className="relative">
-            {/* Garis Roadmap hanya muncul di Desktop */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-slate-100 -translate-y-1/2"></div>
-            {/* Diubah: grid-cols-1 untuk HP */}
-            <div className="grid grid-cols-1 md:grid-cols-3 relative gap-6 md:gap-4">
-              {[
-                { phase: "Fase 1", title: "MVP Launch", items: ["Donasi Dasar", "Audit Trail", "KYC User", "Payment Gateway"] },
-                { phase: "Fase 2", title: "Reporting", items: ["Auto Report via WA"] },
-                { phase: "Fase 3", title: "Scale", items: ["Relawan Network", "Partnership"] }
-              ].map((item, i) => (
-                <div key={i} className="flex md:flex-col items-start md:items-center gap-4 md:gap-0">
-                  <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-600 rounded-full md:mb-6 z-10 border-4 border-white shrink-0"></div>
-                  <div className="bg-white p-5 md:p-6 rounded-2xl border border-slate-200 w-full shadow-sm">
-                    <p className="text-blue-600 font-bold text-[10px] md:text-xs mb-1 uppercase tracking-wider">{item.phase}</p>
-                    <h4 className="font-bold text-sm md:text-base text-slate-800 mb-2 md:mb-4">{item.title}</h4>
-                    <ul className="text-[10px] md:text-xs space-y-1 md:space-y-2 text-slate-500">
-                      {item.items.map((li, j) => <li key={j}>✓ {li}</li>)}
-                    </ul>
-                  </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 text-center">Fase & Efisiensi</h2>
+          <div className="grid grid-cols-1 gap-4">
+            <div className="flex items-start gap-4 p-5 bg-blue-50 rounded-2xl border-2 border-blue-200">
+              <div className="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shrink-0">Fase 1</div>
+              <div>
+                <h4 className="font-bold text-slate-800">Launch MVP (Portofolio Price)</h4>
+                <p className="text-xs text-slate-600 mb-2">Fokus pada sistem donasi QRIS & landing page fungsional.</p>
+                <div className="inline-flex items-center gap-1 text-blue-600 font-bold text-xs bg-white px-2 py-1 rounded border border-blue-200">
+                  <DollarSign className="w-3 h-3" /> Harga Spesial Keluarga & Portofolio
                 </div>
-              ))}
+              </div>
+            </div>
+            <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 opacity-80">
+              <div className="bg-slate-400 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shrink-0">Fase 2+</div>
+              <div>
+                <h4 className="font-bold text-slate-800 italic">Advanced Features (Next Plan)</h4>
+                <p className="text-xs text-slate-500">Otomatisasi Laporan WA, Sistem Relawan, & AI Monitoring.</p>
+              </div>
             </div>
           </div>
         </div>
       )
     },
+    // SLIDE 6: Why Shidki & Aethra?
+    {
+      content: (
+        <div className="w-full max-w-4xl text-center px-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-slate-800 mb-8">Kelebihan Kami</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { t: "1 Year Exp", d: "Developer Aktif", icon: <Zap className="text-yellow-500" /> },
+              { t: "Direct Support", d: "Fast Response", icon: <TrendingUp className="text-blue-500" /> },
+              { t: "Lower Cost", d: "Hemat Budget", icon: <DollarSign className="text-green-500" /> },
+              { t: "Scalable", d: "Siap Berkembang", icon: <Layers className="text-purple-500" /> }
+            ].map((item, i) => (
+              <div key={i} className="p-4 bg-white rounded-2xl border border-slate-100 flex flex-col items-center shadow-sm">
+                <div className="mb-3">{item.icon}</div>
+                <h4 className="font-bold text-xs md:text-sm text-slate-800">{item.t}</h4>
+                <p className="text-[10px] text-slate-400">{item.d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 p-6 bg-slate-900 rounded-[2rem] text-white">
+            <p className="text-sm md:text-lg italic font-medium">"Membangun kualitas profesional dengan budget yang rasional."</p>
+          </div>
+        </div>
+      )
+    }
   ];
 
   return (
@@ -313,7 +244,7 @@ const App = () => {
           onClick={nextSlide}
           className="flex items-center gap-1 md:gap-2 px-6 md:px-8 py-2 md:py-3 rounded-xl bg-blue-600 text-white text-xs md:text-sm font-bold hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-100"
         >
-          {currentSlide === slides.length - 1 ? 'Finish' : 'Next'} <ChevronRight className="w-4 h-4" />
+          {currentSlide === slides.length - 1 ? 'Selesai' : 'Lanjut'} <ChevronRight className="w-4 h-4" />
         </button>
       </div>
     </div>
