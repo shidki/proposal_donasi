@@ -89,7 +89,6 @@ const App = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 opacity-60">
               <h3 className="font-bold text-lg mb-2 text-slate-600">Enterprise App</h3>
-              <p className="text-[10px] md:text-xs text-slate-500 mb-4">Seperti Kitabisa</p>
               <ul className="text-[10px] md:text-xs space-y-1 text-slate-500">
                 <li>• Biaya Dev: Rp 100jt+</li>
                 <li>• Maintenance: Tinggi</li>
