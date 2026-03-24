@@ -9,12 +9,14 @@ import {
   CheckCircle2,
   Heart,
   Zap,
-  DollarSign
+  DollarSign,
+  ClipboardList,
+  Tag
 } from 'lucide-react';
 
 const Slide = ({ children, active }: { children: React.ReactNode; active: boolean }) => (
   <div className={`transition-all duration-500 absolute inset-0 flex flex-col items-center p-4 md:p-8 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
-    <div className="w-full max-w-5xl h-full flex flex-col items-center justify-start md:justify-center overflow-y-auto pb-32 pt-4 md:pb-0">
+    <div className="w-full max-w-5xl h-full flex flex-col items-center justify-start md:justify-center overflow-y-auto pb-32 pt-4 md:pb-0 scrollbar-hide">
       {children}
     </div>
   </div>
@@ -143,26 +145,23 @@ const App = () => {
         </div>
       )
     },
-    // SLIDE 5: Roadmap & Cost Efficiency
+    // SLIDE 5: Roadmap
     {
       content: (
         <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 text-center">Fase & Efisiensi</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 text-center">Fase Pengembangan</h2>
           <div className="grid grid-cols-1 gap-4">
             <div className="flex items-start gap-4 p-5 bg-blue-50 rounded-2xl border-2 border-blue-200">
               <div className="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shrink-0">Fase 1</div>
               <div>
-                <h4 className="font-bold text-slate-800">Launch MVP (Portofolio Price)</h4>
+                <h4 className="font-bold text-slate-800">Launch MVP</h4>
                 <p className="text-xs text-slate-600 mb-2">Fokus pada sistem donasi QRIS & landing page fungsional.</p>
-                {/* <div className="inline-flex items-center gap-1 text-blue-600 font-bold text-xs bg-white px-2 py-1 rounded border border-blue-200">
-                  <DollarSign className="w-3 h-3" /> Harga Terjangkau
-                </div> */}
               </div>
             </div>
             <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 opacity-80">
               <div className="bg-slate-400 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shrink-0">Fase 2+</div>
               <div>
-                <h4 className="font-bold text-slate-800 italic">Advanced Features (Next Plan)</h4>
+                <h4 className="font-bold text-slate-800 italic">Advanced Features</h4>
                 <p className="text-xs text-slate-500">Otomatisasi Laporan WA, Sistem Relawan, & AI Monitoring.</p>
               </div>
             </div>
@@ -170,7 +169,50 @@ const App = () => {
         </div>
       )
     },
-    // SLIDE 6: Why Shidki & Aethra?
+    // SLIDE 6: Cost Estimation
+    {
+      content: (
+        <div className="w-full max-w-4xl px-2">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center">Investasi Pengembangan</h2>
+          <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xl">
+            <div className="p-6 bg-slate-900 text-white flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <ClipboardList className="text-blue-400" />
+                <span className="font-bold md:text-lg">Budget Breakdown (Fase 1)</span>
+              </div>
+              <div className="px-3 py-1 bg-blue-600 rounded-full text-[10px] font-bold uppercase tracking-wider">MVP Package</div>
+            </div>
+            <div className="p-6 space-y-4">
+              <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                <span className="text-sm md:text-base text-slate-600">Frontend & Backend Development</span>
+                <span className="font-bold text-slate-900 text-sm md:text-base">Rp 4.000.000</span>
+              </div>
+              <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                <span className="text-sm md:text-base text-slate-600">Payment Gateway Integration (QRIS)</span>
+                <span className="font-bold text-slate-900 text-sm md:text-base">Rp 2.000.000</span>
+              </div>
+              <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                <span className="text-sm md:text-base text-slate-600">Admin Dashboard & CMS</span>
+                <span className="font-bold text-slate-900 text-sm md:text-base">Rp 2.000.000</span>
+              </div>
+              <div className="mt-6 pt-6 border-t-2 border-dashed border-slate-200 flex justify-between items-center">
+                <div>
+                    <p className="text-xs text-slate-400 font-bold uppercase">Total Investasi</p>
+                    <p className="text-xs text-blue-600 font-medium">*Harga Spesial Portofolio Aethra</p>
+                </div>
+                <div className="text-right">
+                    <p className="text-2xl md:text-3xl font-black text-blue-600 tracking-tighter">Rp 8.000.000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center gap-2 text-[10px] md:text-xs text-slate-400 justify-center">
+            <Tag className="w-3 h-3" /> Termasuk Maintenance Gratis (1 Bulan) & 3x Revisi Mayor
+          </div>
+        </div>
+      )
+    },
+    // SLIDE 7: Conclusion
     {
       content: (
         <div className="w-full max-w-4xl text-center px-4">
@@ -179,7 +221,7 @@ const App = () => {
             {[
               { t: "1 Year Exp", d: "Developer Aktif", icon: <Zap className="text-yellow-500" /> },
               { t: "Direct Support", d: "Fast Response", icon: <TrendingUp className="text-blue-500" /> },
-              { t: "Lower Cost", d: "Hemat Budget", icon: <DollarSign className="text-green-500" /> },
+              { t: "Budget Friendly", d: "Investasi Terjangkau", icon: <DollarSign className="text-green-500" /> },
               { t: "Scalable", d: "Siap Berkembang", icon: <Layers className="text-purple-500" /> }
             ].map((item, i) => (
               <div key={i} className="p-4 bg-white rounded-2xl border border-slate-100 flex flex-col items-center shadow-sm">
