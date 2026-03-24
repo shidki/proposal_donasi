@@ -58,7 +58,7 @@ const App = () => {
           {/* Diubah: grid-cols-1 untuk HP, md:grid-cols-3 untuk Desktop */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {[
-              { title: "Trust Crisis", desc: "Donatur ragu apakah uang mereka benar-benar sampai atau dipotong biaya admin siluman.", icon: <ShieldCheck className="text-red-500" /> },
+              { title: "Trust Crisis", desc: "Donatur ragu apakah uang mereka benar-benar sampai atau dipotong biaya admin.", icon: <ShieldCheck className="text-red-500" /> },
               { title: "Lack of Proof", desc: "Update laporan seringkali hanya teks tanpa bukti fisik/nota yang detail & terverifikasi.", icon: <Eye className="text-orange-500" /> },
               { title: "Giving Friction", desc: "Proses donasi yang berbelit memaksa calon donatur membatalkan niat baiknya.", icon: <TrendingUp className="text-slate-500 md:rotate-90" /> }
             ].map((item, i) => (
