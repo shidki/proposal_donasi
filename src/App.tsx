@@ -121,12 +121,32 @@ const App = () => {
               </ul>
             </div>
             <div className="p-5 md:p-6 bg-blue-600 rounded-2xl text-white shadow-xl shadow-blue-200 ring-4 ring-blue-100">
-              <h3 className="font-bold text-lg md:text-xl mb-3 md:mb-4">Our Application</h3>
-              <ul className="text-xs md:text-sm space-y-1 md:space-y-2 opacity-90">
-                <li>• Hybrid Model</li>
-                <li>• <b>Radical Transparency</b></li>
-                <li>• Real-time Audit Trail</li>
-                <li>• WhatsApp Impact Notification</li>
+              <h3 className="font-bold text-lg md:text-xl mb-4 border-b border-blue-400 pb-2">Our Application</h3>
+              <ul className="space-y-4">
+                <li className="flex flex-col">
+                  <span className="font-bold text-sm md:text-base">• Hybrid Model</span>
+                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
+                    Gabungan donasi online (app) & offline (komunitas) untuk jangkauan lebih luas.
+                  </span>
+                </li>
+                <li className="flex flex-col">
+                  <span className="font-bold text-sm md:text-base">• Radical Transparency</span>
+                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
+                    Keterbukaan total; donatur bisa melihat mutasi rekening yayasan secara langsung.
+                  </span>
+                </li>
+                <li className="flex flex-col">
+                  <span className="font-bold text-sm md:text-base">• Real-time Audit Trail</span>
+                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
+                    Setiap rupiah terlacak otomatis dari masuknya donasi hingga keluar ke penerima.
+                  </span>
+                </li>
+                <li className="flex flex-col">
+                  <span className="font-bold text-sm md:text-base">• WhatsApp Impact Notification</span>
+                  <span className="text-[10px] md:text-xs opacity-80 ml-3">
+                    Laporan bukti foto & nota langsung dikirim ke WA kamu saat dana disalurkan.
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
