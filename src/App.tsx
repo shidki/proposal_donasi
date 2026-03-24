@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import {
   TrendingUp,
-  Target, 
   Layers, 
   ChevronRight, 
   ChevronLeft, 
-  AlertCircle,
   CheckCircle2,
   Heart,
   Zap,
-  DollarSign,
   ClipboardList,
-  Tag
+  Server,
+  Code2,
+  Smartphone,
+  ShieldCheck,
+  BarChart3
 } from 'lucide-react';
 
 const Slide = ({ children, active }: { children: React.ReactNode; active: boolean }) => (
   <div className={`transition-all duration-500 absolute inset-0 flex flex-col items-center p-4 md:p-8 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
-    <div className="w-full max-w-5xl h-full flex flex-col items-center justify-start md:justify-center overflow-y-auto pb-32 pt-4 md:pb-0 scrollbar-hide">
+    <div className="w-full max-w-5xl h-full flex flex-col items-center justify-start md:justify-center overflow-y-auto pb-32 pt-4 md:pb-0 scrollbar-hide text-left md:text-center">
       {children}
     </div>
   </div>
@@ -40,7 +41,7 @@ const App = () => {
             Aethra <span className="text-blue-600">Donasi</span>
           </h1>
           <p className="text-base md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Solusi Platform Donasi Cepat, Transparan, dan Hemat Biaya Pengembangan (MVP Strategy).
+            Solusi Platform Donasi Efisien & Terpercaya (Fase-1 MVP).
           </p>
           <div className="mt-8 md:mt-12 text-[10px] md:text-sm font-semibold text-slate-400 uppercase tracking-widest">
             Presented by Shidki • Aethra Visionary Technology
@@ -48,190 +49,153 @@ const App = () => {
         </div>
       )
     },
-    // SLIDE 2: Problem & Solution
+    // SLIDE 2: Focus
     {
       content: (
         <div className="w-full max-w-4xl px-2">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 flex items-center gap-3">
-            <Zap className="text-yellow-500 w-6 h-6" /> Strategi MVP
+            <Zap className="text-yellow-500 w-6 h-6" /> Prioritas Utama
           </h2>
-          <p className="text-slate-600 mb-8 text-sm md:text-base">Membangun fitur esensial untuk memvalidasi ide tanpa biaya tinggi di awal.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <p className="text-slate-600 mb-8 text-sm md:text-base text-left">Fokus pada fungsionalitas utama agar platform bisa langsung digunakan secepat mungkin.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
             <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
-              <h3 className="font-bold text-red-600 mb-2 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4" /> Masalah Umum
+              <h3 className="font-bold text-blue-600 mb-2 flex items-center gap-2 text-sm">
+                <CheckCircle2 className="w-4 h-4" /> Inti Sistem
               </h3>
-              <ul className="text-xs md:text-sm space-y-2 text-slate-500">
-                <li>• Biaya pembuatan web donasi sangat mahal.</li>
-                <li>• Sistem terlalu kompleks untuk kebutuhan awal.</li>
-                <li>• Kurangnya transparansi pada penyaluran dana.</li>
+              <ul className="text-xs space-y-2 text-slate-500">
+                <li>• Landing Page Informatif & Clean</li>
+                <li>• Sistem Pembayaran QRIS (Snap)</li>
+                <li>• Pencatatan Donasi Real-time</li>
               </ul>
             </div>
-            <div className="bg-blue-50 p-5 rounded-2xl border border-blue-100 shadow-sm">
-              <h3 className="font-bold text-blue-600 mb-2 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4" /> Solusi Aethra
+            <div className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
+              <h3 className="font-bold text-emerald-600 mb-2 flex items-center gap-2 text-sm">
+                <Layers className="w-4 h-4" /> Transparansi
               </h3>
-              <ul className="text-xs md:text-sm space-y-2 text-slate-700">
-                <li>• Fokus pada fitur inti (Donasi & Laporan).</li>
-                <li>• Integrasi Payment Gateway siap pakai (QRIS).</li>
-                <li>• Transparansi manual yang kredibel & terdokumentasi.</li>
+              <ul className="text-xs space-y-2 text-slate-500">
+                <li>• Halaman Update Progres Kampanye</li>
+                <li>• Fitur Upload Bukti Salur (Foto/Nota)</li>
+                <li>• List Donatur Publik (Guest Mode)</li>
               </ul>
             </div>
           </div>
         </div>
       )
     },
-    // SLIDE 3: Benchmarking & Positioning
+    // SLIDE 3: Fitur Detail (NEW SLIDE)
     {
       content: (
         <div className="w-full max-w-5xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center">Positioning Kita</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 opacity-60">
-              <h3 className="font-bold text-lg mb-2 text-slate-600">Enterprise App</h3>
-              <ul className="text-[10px] md:text-xs space-y-1 text-slate-500">
-                <li>• Biaya Dev: Rp 20jt+</li>
-                <li>• Maintenance: Tinggi</li>
-                <li>• Sistem: Sangat Rumit</li>
-              </ul>
-            </div>
-            <div className="p-5 bg-blue-600 rounded-2xl text-white shadow-xl shadow-blue-200 scale-105 z-10">
-              <h3 className="font-bold text-lg md:text-xl mb-2 italic">Aethra MVP</h3>
-              <p className="text-[10px] md:text-xs opacity-80 mb-4 font-bold uppercase tracking-wider">Pilihan Terbaik Saat Ini</p>
-              <ul className="text-[10px] md:text-xs space-y-2">
-                <li>★ Biaya Dev: Efisien & Hemat</li>
-                <li>★ Fitur: Tepat Sasaran (Core Only)</li>
-                <li>★ Launching: Sangat Cepat</li>
-                <li>★ Scalable: Bisa dikembangkan nanti</li>
-              </ul>
-            </div>
-            <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 opacity-60">
-              <h3 className="font-bold text-lg mb-2 text-slate-600">Template Biasa</h3>
-              <p className="text-[10px] md:text-xs text-slate-500 mb-4">Beli di internet</p>
-              <ul className="text-[10px] md:text-xs space-y-1 text-slate-500">
-                <li>• Sulit di-custom</li>
-                <li>• Keamanan diragukan</li>
-                <li>• Tidak ada support lokal</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    // SLIDE 4: Core MVP Requirements
-    {
-      content: (
-        <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 flex items-center gap-3">
-             <Target className="text-blue-600 w-6 h-6" /> Fitur Utama (MVP)
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              { t: "Quick Donation", d: "Donatur bisa langsung donasi via QRIS tanpa harus ribet login/daftar." },
-              { t: "Basic Transparency", d: "Halaman khusus bukti penyaluran dana berupa upload foto & nota." },
-              { t: "Campaign Page", d: "Halaman detail penggalangan dana dengan progress bar real-time." },
-              { t: "Admin Panel", d: "Dashboard simpel untuk mengelola donasi masuk & update laporan." }
-            ].map((f, i) => (
-              <div key={i} className="flex gap-3 p-4 bg-white rounded-xl border border-slate-100 shadow-sm">
-                <div className="bg-green-100 p-2 h-fit rounded-lg shrink-0"><CheckCircle2 className="text-green-600 w-4 h-4 md:w-5 md:h-5" /></div>
-                <div>
-                  <p className="font-bold text-sm md:text-base text-slate-800">{f.t}</p>
-                  <p className="text-[10px] md:text-xs text-slate-500 leading-relaxed">{f.d}</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 text-center">Bedah Fitur Platform</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div className="bg-blue-50 p-4 rounded-2xl border border-blue-100">
+                <div className="flex items-center gap-3 mb-3">
+                  <Smartphone className="text-blue-600 w-5 h-5" />
+                  <h4 className="font-bold text-slate-800 text-sm md:text-base">Sisi Donatur</h4>
                 </div>
+                <ul className="text-left text-[11px] md:text-xs space-y-2 text-slate-600">
+                  <li className="flex gap-2"><span>✅</span> <b>Kemudahan Bayar:</b> Scan QRIS langsung dari HP tanpa login.</li>
+                  <li className="flex gap-2"><span>✅</span> <b>Kepercayaan:</b> Melihat progres dana terkumpul secara live.</li>
+                  <li className="flex gap-2"><span>✅</span> <b>Doa & Dukungan:</b> Bisa tinggalkan pesan/doa di kolom donasi.</li>
+                </ul>
               </div>
-            ))}
+            </div>
+            <div className="space-y-4">
+              <div className="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+                <div className="flex items-center gap-3 mb-3">
+                  <ShieldCheck className="text-emerald-600 w-5 h-5" />
+                  <h4 className="font-bold text-slate-800 text-sm md:text-base">Sisi Pengelola (Admin Om)</h4>
+                </div>
+                <ul className="text-left text-[11px] md:text-xs space-y-2 text-slate-600">
+                  <li className="flex gap-2"><span>✅</span> <b>Dashboard Simple:</b> Pantau total saldo masuk tiap hari.</li>
+                  <li className="flex gap-2"><span>✅</span> <b>Update Laporan:</b> Upload foto nota/kegiatan dalam hitungan detik.</li>
+                  <li className="flex gap-2"><span>✅</span> <b>Manajemen Konten:</b> Edit deskripsi penggalangan dana kapan saja.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-4 text-left">
+            <BarChart3 className="text-slate-400 w-10 h-10 shrink-0" />
+            <p className="text-[10px] md:text-xs text-slate-500 leading-relaxed italic">
+              "Sistem ini memastikan setiap rupiah yang masuk terdokumentasi dengan rapi, mengurangi beban kerja manual Om dalam mencatat keuangan."
+            </p>
           </div>
         </div>
       )
     },
-    // SLIDE 5: Roadmap
+    // SLIDE 4: Budget Breakdown
     {
       content: (
         <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8 text-center">Fase Pengembangan</h2>
-          <div className="grid grid-cols-1 gap-4">
-            <div className="flex items-start gap-4 p-5 bg-blue-50 rounded-2xl border-2 border-blue-200">
-              <div className="bg-blue-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shrink-0">Fase 1</div>
-              <div>
-                <h4 className="font-bold text-slate-800">Launch MVP</h4>
-                <p className="text-xs text-slate-600 mb-2">Fokus pada sistem donasi QRIS & landing page fungsional.</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-slate-200 opacity-80">
-              <div className="bg-slate-400 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase shrink-0">Fase 2+</div>
-              <div>
-                <h4 className="font-bold text-slate-800 italic">Advanced Features</h4>
-                <p className="text-xs text-slate-500">Otomatisasi Laporan WA, Sistem Relawan, & AI Monitoring.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-    // SLIDE 6: Cost Estimation
-    {
-      content: (
-        <div className="w-full max-w-4xl px-2">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center">Investasi Pengembangan</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 text-center">Rencana Investasi</h2>
           <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xl">
-            <div className="p-6 bg-slate-900 text-white flex justify-between items-center">
+            <div className="p-5 bg-slate-900 text-white flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <ClipboardList className="text-blue-400" />
-                <span className="font-bold md:text-lg">Budget Breakdown (Fase 1)</span>
+                <ClipboardList className="text-blue-400 w-5 h-5" />
+                <span className="font-bold text-sm md:text-base tracking-tight">MVP Package (Special Intro)</span>
               </div>
-              <div className="px-3 py-1 bg-blue-600 rounded-full text-[10px] font-bold uppercase tracking-wider">MVP Package</div>
             </div>
-            <div className="p-6 space-y-4">
+            <div className="p-5 space-y-4">
               <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-                <span className="text-sm md:text-base text-slate-600">Frontend & Backend Development</span>
-                <span className="font-bold text-slate-900 text-sm md:text-base">Rp 4.000.000</span>
+                <span className="text-xs md:text-sm text-slate-600 font-medium">Core Web Development (React/Node)</span>
+                <span className="font-bold text-slate-900 text-xs md:text-sm">Rp 2.000.000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-                <span className="text-sm md:text-base text-slate-600">Payment Gateway Integration (QRIS)</span>
-                <span className="font-bold text-slate-900 text-sm md:text-base">Rp 2.000.000</span>
+                <span className="text-xs md:text-sm text-slate-600 font-medium">Payment & QRIS Integration</span>
+                <span className="font-bold text-slate-900 text-xs md:text-sm">Rp 1.500.000</span>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-                <span className="text-sm md:text-base text-slate-600">Admin Dashboard & CMS</span>
-                <span className="font-bold text-slate-900 text-sm md:text-base">Rp 2.000.000</span>
+                <span className="text-xs md:text-sm text-slate-600 font-medium">Simple Dashboard Admin</span>
+                <span className="font-bold text-slate-900 text-xs md:text-sm">Rp 1.000.000</span>
               </div>
+              
+              <div className="bg-amber-50 p-3 rounded-xl border border-amber-100 flex justify-between items-center">
+                <div className="flex items-center gap-2 text-amber-700">
+                    <Server className="w-4 h-4" />
+                    <span className="text-[10px] md:text-xs font-bold uppercase">Biaya Server & Domain</span>
+                </div>
+                <span className="font-bold text-amber-700 text-[10px] md:text-xs tracking-wider">BY CLIENT</span>
+              </div>
+
               <div className="mt-6 pt-6 border-t-2 border-dashed border-slate-200 flex justify-between items-center">
-                <div>
-                    <p className="text-xs text-slate-400 font-bold uppercase">Total Investasi</p>
-                    <p className="text-xs text-blue-600 font-medium">*Harga Spesial Portofolio Aethra</p>
+                <div className="text-left">
+                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Total Biaya</p>
+                    <p className="text-[10px] text-blue-600 font-bold italic">*Special Price for Aethra Portfolio</p>
                 </div>
                 <div className="text-right">
-                    <p className="text-2xl md:text-3xl font-black text-blue-600 tracking-tighter">Rp 8.000.000</p>
+                    <p className="text-2xl md:text-4xl font-black text-blue-600 tracking-tighter">Rp 4.500.000</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-4 flex items-center gap-2 text-[10px] md:text-xs text-slate-400 justify-center">
-            <Tag className="w-3 h-3" /> Termasuk Maintenance Gratis (1 Bulan) & 3x Revisi Mayor
-          </div>
+          <p className="mt-4 text-[10px] text-slate-400 italic text-center">Estimasi pengerjaan: 2-3 Minggu kerja intensif.</p>
         </div>
       )
     },
-    // SLIDE 7: Conclusion
+    // SLIDE 5: Value & Future
     {
       content: (
         <div className="w-full max-w-4xl text-center px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-slate-800 mb-8">Kelebihan Kami</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { t: "1 Year Exp", d: "Developer Aktif", icon: <Zap className="text-yellow-500" /> },
-              { t: "Direct Support", d: "Fast Response", icon: <TrendingUp className="text-blue-500" /> },
-              { t: "Budget Friendly", d: "Investasi Terjangkau", icon: <DollarSign className="text-green-500" /> },
-              { t: "Scalable", d: "Siap Berkembang", icon: <Layers className="text-purple-500" /> }
-            ].map((item, i) => (
-              <div key={i} className="p-4 bg-white rounded-2xl border border-slate-100 flex flex-col items-center shadow-sm">
-                <div className="mb-3">{item.icon}</div>
-                <h4 className="font-bold text-xs md:text-sm text-slate-800">{item.t}</h4>
-                <p className="text-[10px] text-slate-400">{item.d}</p>
-              </div>
-            ))}
+          <h2 className="text-2xl md:text-4xl font-bold text-slate-800 mb-10">Kenapa Harga Ini?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+            <div className="flex gap-4 items-start">
+               <div className="bg-blue-100 p-3 rounded-2xl shrink-0"><Code2 className="text-blue-600 w-6 h-6" /></div>
+               <div>
+                 <h4 className="font-bold text-slate-800 text-sm">Professional Stack</h4>
+                 <p className="text-[10px] md:text-xs text-slate-500">Meskipun harga terjangkau, teknologi tetap menggunakan standar industri (React & Tailwind).</p>
+               </div>
+            </div>
+            <div className="flex gap-4 items-start">
+               <div className="bg-emerald-100 p-3 rounded-2xl shrink-0"><TrendingUp className="text-emerald-600 w-6 h-6" /></div>
+               <div>
+                 <h4 className="font-bold text-slate-800 text-sm">Scalable Roadmap</h4>
+                 <p className="text-[10px] md:text-xs text-slate-500">Sistem didesain agar bisa ditambah fitur canggih lainnya di masa depan tanpa harus bongkar ulang.</p>
+               </div>
+            </div>
           </div>
-          <div className="mt-12 p-6 bg-slate-900 rounded-[2rem] text-white">
-            <p className="text-sm md:text-lg italic font-medium">"Membangun kualitas profesional dengan budget yang rasional."</p>
+          <div className="mt-16 p-6 bg-slate-900 rounded-[2.5rem] text-white">
+            <p className="text-base md:text-xl font-medium tracking-tight">"Membantu Om mewujudkan platform yang berkah dengan cara yang paling efektif."</p>
           </div>
         </div>
       )
@@ -246,10 +210,10 @@ const App = () => {
           <div className="w-7 h-7 md:w-8 md:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
             <Heart className="w-4 h-4 md:w-5 md:h-5 text-white" />
           </div>
-          <span className="font-bold text-base md:text-xl tracking-tight text-slate-800">Aethra Donasi</span>
+          <span className="font-bold text-lg tracking-tight text-slate-800">Aethra Donasi</span>
         </div>
-        <div className="text-[10px] md:text-sm font-medium text-slate-400">
-          Slide {currentSlide + 1} / {slides.length}
+        <div className="text-[10px] font-bold text-slate-400">
+          Proposal {currentSlide + 1} / {slides.length}
         </div>
       </div>
 
@@ -266,24 +230,15 @@ const App = () => {
       <div className="p-4 md:p-8 flex justify-between items-center bg-white border-t border-slate-100 z-50">
         <button 
           onClick={prevSlide}
-          className="flex items-center gap-1 md:gap-2 px-4 md:px-6 py-2 md:py-3 rounded-xl border border-slate-200 text-xs md:text-sm font-bold hover:bg-slate-50 transition-all active:scale-95 disabled:opacity-30"
+          className="flex items-center gap-2 px-5 py-3 rounded-2xl border border-slate-200 text-xs font-bold hover:bg-slate-50 disabled:opacity-30"
           disabled={currentSlide === 0}
         >
-          <ChevronLeft className="w-4 h-4" /> Previous
+          <ChevronLeft className="w-4 h-4" /> Prev
         </button>
         
-        <div className="hidden md:flex gap-2">
-          {slides.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-1.5 rounded-full transition-all duration-300 ${currentSlide === i ? 'w-8 bg-blue-600' : 'w-2 bg-slate-200'}`}
-            ></div>
-          ))}
-        </div>
-
         <button 
           onClick={nextSlide}
-          className="flex items-center gap-1 md:gap-2 px-6 md:px-8 py-2 md:py-3 rounded-xl bg-blue-600 text-white text-xs md:text-sm font-bold hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-100"
+          className="flex items-center gap-2 px-8 py-3 rounded-2xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 shadow-xl shadow-blue-100 active:scale-95 transition-all"
         >
           {currentSlide === slides.length - 1 ? 'Selesai' : 'Lanjut'} <ChevronRight className="w-4 h-4" />
         </button>
