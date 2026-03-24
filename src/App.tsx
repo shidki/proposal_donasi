@@ -155,7 +155,7 @@ const App = () => {
                 <h4 className="font-bold text-slate-800">Launch MVP (Portofolio Price)</h4>
                 <p className="text-xs text-slate-600 mb-2">Fokus pada sistem donasi QRIS & landing page fungsional.</p>
                 <div className="inline-flex items-center gap-1 text-blue-600 font-bold text-xs bg-white px-2 py-1 rounded border border-blue-200">
-                  <DollarSign className="w-3 h-3" /> Harga Spesial Keluarga & Portofolio
+                  <DollarSign className="w-3 h-3" /> Harga Terjangkau
                 </div>
               </div>
             </div>
