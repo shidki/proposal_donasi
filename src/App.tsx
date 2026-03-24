@@ -234,21 +234,21 @@ const App = () => {
       )
     },
     // SLIDE 8: Conclusion
-    {
-      content: (
-        <div className="text-center bg-blue-600 p-16 rounded-[3rem] text-white shadow-2xl shadow-blue-200">
-          <h2 className="text-4xl font-bold mb-6 italic">"Kebaikan yang Terukur adalah Kebaikan yang Menenangkan."</h2>
-          <p className="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
-            Kita bukan hanya membangun website, kita membangun sistem kepercayaan digital untuk Indonesia.
-          </p>
-          <div className="flex justify-center gap-4">
-            <button onClick={() => setCurrentSlide(0)} className="px-8 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors">
-              Ulangi Presentasi
-            </button>
-          </div>
-        </div>
-      )
-    }
+    // {
+    //   content: (
+    //     <div className="text-center bg-blue-600 p-16 rounded-[3rem] text-white shadow-2xl shadow-blue-200">
+    //       <h2 className="text-4xl font-bold mb-6 italic">"Kebaikan yang Terukur adalah Kebaikan yang Menenangkan."</h2>
+    //       <p className="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
+    //         Kita bukan hanya membangun website, kita membangun sistem kepercayaan digital untuk Indonesia.
+    //       </p>
+    //       <div className="flex justify-center gap-4">
+    //         <button onClick={() => setCurrentSlide(0)} className="px-8 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors">
+    //           Ulangi Presentasi
+    //         </button>
+    //       </div>
+    //     </div>
+    //   )
+    // }
   ];
 
   return (
