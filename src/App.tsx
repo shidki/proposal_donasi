@@ -90,7 +90,7 @@ const App = () => {
             <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 opacity-60">
               <h3 className="font-bold text-lg mb-2 text-slate-600">Enterprise App</h3>
               <ul className="text-[10px] md:text-xs space-y-1 text-slate-500">
-                <li>• Biaya Dev: Rp 100jt+</li>
+                <li>• Biaya Dev: Rp 20jt+</li>
                 <li>• Maintenance: Tinggi</li>
                 <li>• Sistem: Sangat Rumit</li>
               </ul>
